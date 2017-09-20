@@ -1,5 +1,5 @@
-import FooterComponent from './FooterComponent'
 
+import HeadComponent from './headerComponent'
 
 
 class RootComponent extends React.Component {   
@@ -10,21 +10,15 @@ class RootComponent extends React.Component {
           
         }
     }
-    
+    componentWillMount(){
+        
+    }
     render(){
         console.log(this)
         return (
-            <div>
-               <header className="bar bar-nav">
-                    {/* <a className="icon icon-me pull-left open-panel"></a> */}
-                    <h1 className="title">Latiao</h1>
-                </header>
-
-                {this.props.children}
-
-                
-
-                <FooterComponent pathname={this.props.location.pathname}/>
+            <div className="full-height">
+                <HeadComponent/>
+               {this.props.children}
             </div>
         )
     }

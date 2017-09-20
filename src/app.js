@@ -6,23 +6,29 @@ require("./styles/app.scss")
 // var ReactDOM = require('react-dom')
 
 import RootComponent from './scripts/components/RootComponent'
-
-import {Router,Route,hashHistory,IndexRedirect,IndexRoute} from 'react-router'
-
-import MainComponent from './scripts/components/MainComponent'
-import CollectComponent from './scripts/components/CollectComponent'
-import DetailComponent from './scripts/components/DetailComponent'
+import HotIndexComponent from './scripts/components/HotIndexComponent'
+ import {Router,Route,hashHistory,IndexRedirect,IndexRoute} from 'react-router'
+ import MovieComponent from './scripts/components/MovieComponent'
+ import CinemaComponent from './scripts/components/CinemaComponent'
+ import MineComponent from './scripts/components/MineComponent'
+ import IdcardComponent from './scripts/components/IdcardComponent'
+ import WhereComponent from './scripts/components/WhereComponent'
 // {/* <IndexRedirect to="/main"/> */}
+//hasHistory表示此路由由hash控制；
+
 ReactDOM.render(
     
     <Router history={hashHistory}>
-         <Route path="/" component={RootComponent}>
+        <Route path="/" component={RootComponent}>
             
-            <IndexRoute component={MainComponent}/>
-            <Route path="main" component={MainComponent}></Route>
-            <Route path="collect" component={CollectComponent}></Route>
-            <Route path="detail/:id" component={DetailComponent}></Route>
-            <Route path="*" component={MainComponent}></Route>
+            <IndexRoute component={HotIndexComponent}/>
+            <Route path="/" component={HotIndexComponent}></Route>
+            <Route path="/movie" component={MovieComponent}></Route>
+            <Route path="/cinema" component={CinemaComponent}></Route>
+            <Route path="/mine" component={MineComponent}></Route>
+            <Route path="/idcard" component={IdcardComponent}></Route>
+            <Route path="/where" component={WhereComponent}></Route>
+            <Route path="*" component={HotIndexComponent}></Route> 
 
         </Route>
     </Router>

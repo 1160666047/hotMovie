@@ -1,6 +1,25 @@
 
 
-@import './_base.scss';
-@import './_mixin.scss';
-@import './_reset.scss';
-@import './_common.scss';
+
+@import './_header.scss';
+@import './_hotIndex.scss';
+*{
+    margin:0;padding:0;
+}
+#app{
+    height:100%;
+
+}
+html,body{
+    width:100%;
+    height:100%;
+    img{
+        display:blcok;
+    }
+}
+body{
+    font-size:16px;
+}
+.full-height{
+
+}
