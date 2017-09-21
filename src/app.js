@@ -3,7 +3,7 @@ require("./styles/app.scss")
 
 ///////////////////////
 // var React = require("react")
-// var ReactDOM = require('react-dom')
+// var ReactDOM = require('react-dom') ListComponent
 
 import RootComponent from './scripts/components/RootComponent'
 import HotIndexComponent from './scripts/components/HotIndexComponent'
@@ -13,6 +13,7 @@ import HotIndexComponent from './scripts/components/HotIndexComponent'
  import MineComponent from './scripts/components/MineComponent'
  import IdcardComponent from './scripts/components/IdcardComponent'
  import WhereComponent from './scripts/components/WhereComponent'
+ import ListComponent from './scripts/components/ListComponent'
 // {/* <IndexRedirect to="/main"/> */}
 //hasHistory表示此路由由hash控制；
 
@@ -28,6 +29,7 @@ ReactDOM.render(
             <Route path="/mine" component={MineComponent}></Route>
             <Route path="/idcard" component={IdcardComponent}></Route>
             <Route path="/where" component={WhereComponent}></Route>
+            <Route path="/list" component={ListComponent}></Route>
             <Route path="*" component={HotIndexComponent}></Route> 
 
         </Route>

@@ -3,6 +3,9 @@
 import $ from 'jquery'
 import store from '../flux/store'
 import actioncreator from '../flux/actions'
+import store_redux from '../redux/store'
+import actions_redux from '../redux/actions'
+
 class WhereComponent extends React.Component {   
     constructor(props,context){
         super(props,context)
@@ -18,6 +21,9 @@ class WhereComponent extends React.Component {
         // if(state){
         //     alert("success")
         // }
+    }
+    componentWillMount(){//最后一次修改jsx的机会；一般用来执行ajax
+        actions_redux.changeTitle("定位")
     }
     isshowChange(){
         this.setState({

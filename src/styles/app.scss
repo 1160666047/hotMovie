@@ -3,6 +3,7 @@
 
 @import './_header.scss';
 @import './_hotIndex.scss';
+@import './_hot__list.scss';
 *{
     margin:0;padding:0;
 }
@@ -16,10 +17,13 @@ html,body{
     img{
         display:blcok;
     }
+   
 }
 body{
     font-size:16px;
 }
 .full-height{
-
+    display: flex;
+    flex-direction: column; 
+    height:100%;
 }

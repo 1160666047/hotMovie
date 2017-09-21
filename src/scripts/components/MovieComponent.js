@@ -1,6 +1,10 @@
 
 
 import $ from 'jquery'
+import store_redux from '../redux/store'
+import actions_redux from '../redux/actions'
+
+
 
 class MovieComponent extends React.Component {   
     constructor(props,context){
@@ -16,6 +20,9 @@ class MovieComponent extends React.Component {
         // if(state){
         //     alert("success")
         // }
+    }
+    componentWillMount(){//最后一次修改jsx的机会；一般用来执行ajax
+        actions_redux.changeTitle("影片")
     }
     isshowChange(){
         this.setState({

@@ -1,7 +1,6 @@
 
 import HeadComponent from './headerComponent'
 
-
 class RootComponent extends React.Component {   
     constructor(props,context){
         super(props,context)

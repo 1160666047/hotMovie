@@ -5,18 +5,27 @@ import $ from 'jquery'
 import store from '../flux/store'
 import actions from '../flux/actions'
 import Fetch from '../modules/fetch'
+import HotIndexContentComponent from './HotIndexContentComponent'
+
+import store_redux from '../redux/store'
+import actions_redux from '../redux/actions'
 class HotIndexComponent extends React.Component {   
     constructor(props,context){
         super(props,context)
 
         this.state={
             lb_arr:[],
+            lb_arr_son:[],
+            lb_arr_son2:[],
             swiper:null
+
         }
     }
     componentWillMount(){//最后一次修改jsx的机会；一般用来执行ajax
         this.getLunboDate()
-        
+        this.getLunboDate_son()
+        this.getLunboDate_son2()
+        actions_redux.changeTitle("卖座电影")
     }
     //获取轮播图的数据
     getLunboDate(){
@@ -34,6 +43,40 @@ class HotIndexComponent extends React.Component {
         })
 
     }
+    //获取轮播图的数据
+    getLunboDate_son(){
+        // http://localhost:9000/ele/shopping/v3/hot_search_words
+        // http://m.maizuo.com/v4/api/film/now-playing?__t=1505955007135&page=1&count=5
+        //服务器请求我们自己的地址但后面的参数一个不差的传到config，在config中把localhost再换回来把/hot换走
+          Fetch.Get('http://localhost:9000/hot/v4/api/film/now-playing?__t=1505955007135&page=1&count=5',{
+          })
+          .then(res=>{
+              return res.json()})
+          .then(json=>{
+              this.setState({
+                lb_arr_son:json.data.films
+              })
+              console.log("qianqian")
+              console.log(this.state.lb_arr_son)
+          })
+  
+      }
+      //第二个子组件获取数据的方法
+      getLunboDate_son2(){
+        // http://localhost:9000/ele/shopping/v3/hot_search_words
+        // //m.maizuo.com/v4/api/film/coming-soon?__t=1506005770161&page=1&count=3
+        //服务器请求我们自己的地址但后面的参数一个不差的传到config，在config中把localhost再换回来把/hot换走
+          Fetch.Get('http://localhost:9000/hot/v4/api/film/coming-soon?__t=1506005770161&page=1&count=3',{
+          })
+          .then(res=>{
+              return res.json()})
+          .then(json=>{
+              this.setState({
+                lb_arr_son2:json.data.films
+              })
+          })
+  
+      }
     showLbData(){
         console.log(this.state.lb_arr[0])
         let arr=[]
@@ -43,13 +86,20 @@ class HotIndexComponent extends React.Component {
          return arr
     }
     render(){
-        let {position_info} = this.state
+        //let {position_info} = this.state
+        console.log("dongdong")
+        console.log(this.state.lb_arr_son)
         return (
+            <div className="hot__Index--farther">
             <div className="hot__Index swiper-container">
                <div className="swiper-wrapper">
                    {this.showLbData()}
+    
                </div>
-                
+             <HotIndexContentComponent lb_arr={this.state.lb_arr_son}/>
+             <p><span>即将上映</span></p>
+             <HotIndexContentComponent lb_arr={this.state.lb_arr_son2}/>
+            </div>
             </div>
         )
     }
@@ -63,6 +113,7 @@ class HotIndexComponent extends React.Component {
         that.state.mySwiper = new Swiper('.swiper-container', {
              autoplay: 2000,//可选选项，自动滑动
             loop:true,
+            autoplayDisableOnInteraction:false,
             loopAdditionalSlides:3,
             paginationClickable: true,
             longSwipesRatio: 0.3,

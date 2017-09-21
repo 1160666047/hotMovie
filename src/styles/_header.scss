@@ -1,4 +1,5 @@
 .hot__movie__header{  
+    flex:0;
     height:100%;
     position: relative;
     .hot__header{
@@ -77,6 +78,7 @@
                 transition: all 0.5s;
             }
             .hot__aside--farther{
+                top:0.48rem;
                 transition: all 0.5s;
                 z-index:10;
                 position:absolute;
@@ -85,9 +87,11 @@
                 background:#000;
             }
             .hot__aside--farther-hide{
+                display:none;
                 opacity: 0;
             }
             .hot__aside--farther-show{
+                display:block;
                 opacity: 0.7;
             }
 }

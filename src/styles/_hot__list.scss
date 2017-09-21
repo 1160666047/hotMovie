@@ -1,0 +1,21 @@
+.hot__list{
+    width:100%;
+    img{
+        width:100%;
+    }
+    font-size:0.08rem;
+    ul{
+        margin:0.12rem;
+        li{
+            list-style: none;
+            height: 0.32rem;
+            line-height: 0.32rem;
+        }
+     
+    }
+    p{
+        margin:0.12rem;
+        overflow: hidden;
+        line-height: 0.20rem;
+    }
+}
