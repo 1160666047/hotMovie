@@ -1,15 +1,30 @@
 .hot__list{
     width:100%;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
     img{
         width:100%;
     }
     font-size:0.08rem;
     ul{
-        margin:0.12rem;
+        width:100%;
+        padding:0.12rem;
+        li:nth-of-type(1){
+            overflow: hidden;
+            white-space: nowrap;
+
+        }               
         li{
             list-style: none;
-            height: 0.32rem;
-            line-height: 0.32rem;
+            height: 0.24rem;
+            line-height: 0.24rem;
+        }
+        li:nth-of-type(3){
+            overflow: hidden;
+            white-space: nowrap;
+
         }
      
     }
@@ -17,5 +32,16 @@
         margin:0.12rem;
         overflow: hidden;
         line-height: 0.20rem;
+    }
+    button{
+        //margin:0.1rem 1.09rem;
+        height:0.36rem;
+        line-height:0.36rem;
+        border:none;
+        width:1.56rem;
+        font-size:0.14rem;
+        border-radius: 0.18rem;
+        background:#fe8233;
+        color:#fff;
     }
 }

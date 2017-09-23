@@ -14,7 +14,7 @@ class ListComponent extends React.Component {
           isshow:false,
           listId:'3841',
           str:''
-        }
+        }   
     }
     componentDidUpdate(props,state){
     }
@@ -35,7 +35,6 @@ class ListComponent extends React.Component {
             .then(res=>{
                 return res.json()})
             .then(json=>{
-                console.log(json)
                 this.setState({
                     lb_arr:json.data.film
                 })
@@ -58,8 +57,21 @@ class ListComponent extends React.Component {
         return new Date(parseInt(nS)).toLocaleString().replace(/:\d{1,2}$/,'');     
      } 
     render(){
+        // console.log(this.state.lb_arr.cover.abc,1)
         // let cover= JSON.parse(this.state.lb_arr.cover)
-        // console.log( this.state.lb_arr.cover.origin)
+        //   console.log(typeof this.state.lb_arr.cover)
+        // console.log(this.state.lb_arr.actors)
+        let str_actor=''
+        if(this.state.lb_arr.actors){
+            Array.from(this.state.lb_arr.actors).forEach((item,i)=>{
+                console.log(item.name)
+                str_actor+=item.name+' | '
+
+         })
+        }  
+      
+
+
         let strr=''
         let data=this.state.lb_arr
         let date = this.getLocalTime(data.premiereAt)
@@ -68,18 +80,20 @@ class ListComponent extends React.Component {
             strr=this.state.lb_arr.cover.origin
         }
         return (
-            <div className="hot__list">
+            <div className="hot__list"> 
                 <img src={strr}/>
                 <ul>
                 <li><span></span>影片简介</li>
-                <li>导演：{data.director}</li>
-                {/* <li>主演：{data.actors[0]}</li> */}
+                <li>导&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;演：{data.director}</li>
+                 <li>主&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;演：{str_actor}</li> 
                 <li>地区语言：{data.nation}|{data.language}</li>
-                <li>类型：{data.category}</li>
+                <li>类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型：{data.category}</li>
                 <li>上映日期：{date}</li>
-                
+                   
             </ul>
             <p>{data.synopsis}</p>
+
+            <button>立即购票</button>
             </div>
          )
     }

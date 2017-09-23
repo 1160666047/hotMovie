@@ -78,7 +78,6 @@ class HotIndexComponent extends React.Component {
   
       }
     showLbData(){
-        console.log(this.state.lb_arr[0])
         let arr=[]
         this.state.lb_arr.forEach((item,i)=>{
             arr.push(<div className="hot__Lb--Header swiper-slide"><a href="#"><img src={item.imageUrl}/></a></div>)
@@ -87,8 +86,6 @@ class HotIndexComponent extends React.Component {
     }
     render(){
         //let {position_info} = this.state
-        console.log("dongdong")
-        console.log(this.state.lb_arr_son)
         return (
             <div className="hot__Index--farther">
             <div className="hot__Index swiper-container">
@@ -96,9 +93,9 @@ class HotIndexComponent extends React.Component {
                    {this.showLbData()}
     
                </div>
-             <HotIndexContentComponent lb_arr={this.state.lb_arr_son}/>
+             <HotIndexContentComponent lb_arr={this.state.lb_arr_son} showWhat={{url:'/v4/api/film/now-playing?page=',showHow:true,btnVal:'更多正在热映'}}/>
              <p><span>即将上映</span></p>
-             <HotIndexContentComponent lb_arr={this.state.lb_arr_son2}/>
+             <HotIndexContentComponent lb_arr={this.state.lb_arr_son2} showWhat={{url:'/v4/api/film/coming-soon?page=',showHow:false,btnVal:'更多即将上映'}}/>
             </div>
             </div>
         )

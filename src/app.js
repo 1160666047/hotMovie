@@ -16,9 +16,12 @@ import HotIndexComponent from './scripts/components/HotIndexComponent'
  import ListComponent from './scripts/components/ListComponent'
 // {/* <IndexRedirect to="/main"/> */}
 //hasHistory表示此路由由hash控制；
+import {Provider} from 'react-redux'
+import store from './scripts/redux/store'
+
 
 ReactDOM.render(
-    
+    <Provider store={store}>
     <Router history={hashHistory}>
         <Route path="/" component={RootComponent}>
             
@@ -34,5 +37,5 @@ ReactDOM.render(
 
         </Route>
     </Router>
-    
+    </Provider>
     ,document.getElementById("app"))

@@ -13,7 +13,8 @@ class WhereComponent extends React.Component {
         this.state={
              todos:store.getAll(),
              isshow:false,
-             new_city:''
+             new_city:'',
+             now_city:''
         }
     }
     componentDidUpdate(props,state){
@@ -30,6 +31,12 @@ class WhereComponent extends React.Component {
             isshow:!this.state.isshow
         })
     }
+    //获取当前定位城市的方法；
+    getCity(){
+        getLocalCity((status,result)=>{
+            console.log(result)
+        });
+    }
     addNew(e){
         if(e.keyCode==13){   
             console.log(e.target.value)
@@ -41,10 +48,13 @@ class WhereComponent extends React.Component {
         this.setState({new_city:e.target.value})
         console.log(this.state.new_city)
     }
+
     render(){
         return (
             <div>
-                <span>请输入您的地址：</span>
+                <span>浏览器定位的您的地址</span>
+                <p>{this.state.now_city}</p>
+                <span>热门城市</span>
                 <input  onKeyUp={this.addNew.bind(this)} type="text" />
                 <p>{this.state.new_city}</p>
             </div>

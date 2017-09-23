@@ -1,0 +1,35 @@
+.hot_or_coming--movie{
+    width:92%;
+    margin:0 auto;
+    // background:#ebebeb;
+  
+    p{
+        display:flex;
+        border-bottom:solid #fe6e00 1px;
+        button{
+            background:#ebebeb;
+            border:none;
+            font-size:0.16rem;
+            line-height:0.46rem;
+            flex:1;
+            color:#6a6a6a;
+            height:0.46rem;
+        }
+        .btn_active{
+            color:#fe6e00;
+            border-bottom:solid #fe6e00 2px;
+        }
+    }
+    .hot_or_coming--movie--son{
+        height: 100%;
+        overflow-y:auto; 
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            display: block;
+            width:0.6rem;
+        }
+    }
+    
+}

@@ -9,7 +9,16 @@ const actions = {
 		}
 		store.dispatch(action)
 	},
+	
+	changeUserInfo(info){
+		store.dispatch({
+			type:'CHANGE_MOVIESHOW_URL',
+			info:info
+		})
+	},
+	
 	//修改页面标题的方法
+
 	changeTitle(new_title){
 		let action = {
 			type:'CHANGE_TITLE',
