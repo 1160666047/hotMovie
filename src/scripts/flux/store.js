@@ -4,19 +4,16 @@ const EventEmitter = require("events").EventEmitter
 const store = Object.assign({},EventEmitter.prototype,{
     todos:'北京',
     getAll(){
-		console.log(this)
 		return this.todos
 		//return "aaa"
     },
+    //初始化获取经纬度信息
+    getUserLaLo(){
+        navigator.geolocation.getCurrentPosition((position)=>{
+            alert(1)
+        },(msg)=>{ alert(2); console.log(msg.code, msg.message);})
+    },
     addNew(title){
-        // this.count++;
-        // this.todos.push({
-        //     id:this.count,
-        //     title,
-        //     isFinished:false
-        // })
-        // console.log('6.store方法被调用之后更改数据，然后触发事件')
-		// this.emit("todos-change")
 		this.todos=title
 		this.emit("todos-change")
     },
@@ -32,7 +29,6 @@ const store = Object.assign({},EventEmitter.prototype,{
 	// },
 	changeTodo(newTodo){
 		this.todos=newTodo
-		console.log("asdadadadasfdagsa")
 		this.emit("todos-change")
 	},
     removeTodo(){

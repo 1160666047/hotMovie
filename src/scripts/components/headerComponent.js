@@ -35,12 +35,9 @@ class HeadComponent extends React.Component {
     componentDidMount(){//访问已经渲染的真是dom
         let that=this
         store.addChangeListener(()=>{
-            console.log("SUCCESS")
-            console.log(store.getAll())
             this.setState({todos:store.getAll()})
         })
         store_redux.subscribe(()=>{
-			console.log('6.store的subscribe方法里的回调执行，view获取最新的状态')
 			that.setState({
 				title:store_redux.getState().title
 			})

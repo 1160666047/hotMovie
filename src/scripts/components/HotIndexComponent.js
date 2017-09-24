@@ -29,6 +29,7 @@ class HotIndexComponent extends React.Component {
     }
     //获取轮播图的数据
     getLunboDate(){
+        //console.log('看看lb数据执行没执行！！！！','我就bi了狗子了怎么就突然没了')
       // http://localhost:9000/ele/shopping/v3/hot_search_words
       // m.maizuo.com/v4/api/billboard/home?__t=1505896644137
       //服务器请求我们自己的地址但后面的参数一个不差的传到config，在config中把localhost再换回来把/hot换走
