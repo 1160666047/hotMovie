@@ -85,8 +85,7 @@ class WhereComponent extends React.Component {
             this.state.citys.forEach((item,i)=>{
                 var re = new RegExp(item.name)
                 if(e.target.value.search(re)>-1){
-                    console.log(num++)
-                    actioncreator.changePosition(e.target.value);
+                    actioncreator.changePosition({city:item.name,id:item.id});
                     return;
                 }
             })
@@ -102,7 +101,7 @@ class WhereComponent extends React.Component {
             var re = new RegExp(item.name)
             if(now.search(re)>-1){
               
-                actioncreator.changePosition(item.name);
+                actioncreator.changePosition({city:item.name,id:item.id});
                  return;
             }
         })
@@ -111,9 +110,9 @@ class WhereComponent extends React.Component {
          //获取用的地理位置;
 
         return (
-            <div>
+            <div className="citysWhere__far">
                 <span>浏览器定位的您的地址</span>
-
+                
                 <p onClick={this.makePositionCity.bind(this)}>{this.state.now_city}</p>
                 <span>热门城市</span>
                 <input placeholder="请输入地址" autofocus="autofocus" onKeyUp={this.addNew.bind(this)} type="text" />
@@ -126,6 +125,10 @@ class WhereComponent extends React.Component {
         store.addChangeListener(()=>{
             this.setState({new_city:store.getAll()})
         })
+        //我想在这监听滚动条的 变化
+        document.getElementsByClassName(".citysWhere__far").onscroll = function(){
+            alert('1')
+        }
     }
 }
 //定义默认属性

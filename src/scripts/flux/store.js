@@ -2,10 +2,9 @@
 
 const EventEmitter = require("events").EventEmitter
 const store = Object.assign({},EventEmitter.prototype,{
-    todos:'北京',
+    todos:{city:'北京',id:'12'},
     getAll(){
-		return this.todos
-		//return "aaa"
+		return this.todos.city
     },
     //初始化获取经纬度信息
     getUserLaLo(){
@@ -28,7 +27,8 @@ const store = Object.assign({},EventEmitter.prototype,{
     // 	localStorage.todos=JSON.stringify(this.todos)
 	// },
 	changeTodo(newTodo){
-		this.todos=newTodo
+        this.todos=newTodo
+        console.log(this.todos.city,this.todos.id)
 		this.emit("todos-change")
 	},
     removeTodo(){

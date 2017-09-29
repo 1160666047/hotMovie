@@ -112,7 +112,7 @@ class MovieComponent extends React.Component {
             console.log('看看我点击的时候这里走不走')
         return ( //onClick={this.nowOrComing.bind(this,'MOVIE_COMING')}
             <div className="hot_or_coming--movie">
-                <p>
+                <p className="p1">
                     <button onClick={this.rredux.bind(this,false)} className={this.props.movieShow.showHow?'btn_active':''}>正在热映</button>
                 <button onClick={this.rredux.bind(this,true)} className={this.props.movieShow.showHow?'':'btn_active'}>即将上映</button></p>
 
@@ -122,8 +122,37 @@ class MovieComponent extends React.Component {
     }
     componentWillReceiveProps(){
            // this.getShowboDate()
+
+        //    myscroll=new iScroll(".hot_or_coming--movie",{
+        //     hScroll:false,
+        //     bounce:true,
+        //     momentum:true,
+        //     checkDOMChanges:true,
+        //     vScrollbar:true,
+        //     zoom:true,
+        //     doubleTapZoom:10
+        // });
+    }
+    componentDidMount(){
+        window.onscroll= function  () {
+            // 页面总高度
+            var bodyHeight = document.documentElement.offsetHeight;
+            console.log(bodyHeight)
+            // 可视区高度
+            var windowHeight = document.documentElement.clientHeight;
+            console.log(windowHeight)
+            //滚动条的高度    
+            var srcollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            alert(srcollTop)
+            var srcollH = document.body.scrollHeight;
+            // alert(srcollH);
+            if (srcollTop+windowHeight  >= srcollH-20) {
+                alert(1)
+            };
+        }
     }
 }
+
 //定义默认属性
 MovieComponent.defaultProps={
 

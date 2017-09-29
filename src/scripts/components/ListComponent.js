@@ -64,7 +64,6 @@ class ListComponent extends React.Component {
         let str_actor=''
         if(this.state.lb_arr.actors){
             Array.from(this.state.lb_arr.actors).forEach((item,i)=>{
-                console.log(item.name)
                 str_actor+=item.name+' | '
 
          })

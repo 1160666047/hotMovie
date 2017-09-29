@@ -1,13 +1,18 @@
 .hot_or_coming--movie{
-    width:92%;
+    background:#fff;
+    height: 100%;
+    overflow-y: auto;
+    width:100%;
+    padding-left:0.2rem;
+    padding-right:0.2rem;
     margin:0 auto;
     // background:#ebebeb;
   
-    p{
+    .p1{
         display:flex;
         border-bottom:solid #fe6e00 1px;
         button{
-            background:#ebebeb;
+            background:#fff;
             border:none;
             font-size:0.16rem;
             line-height:0.46rem;
@@ -17,18 +22,46 @@
         }
         .btn_active{
             color:#fe6e00;
-            border-bottom:solid #fe6e00 2px;
+            border-bottom:solid #fe6e00 0.03rem;
         }
     }
     .hot_or_coming--movie--son{
+        margin-bottom: 0.2rem;
         height: 100%;
-        overflow-y:auto; 
         display:flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
+        div:nth-of-type(1){flex:1;padding-left:0.2rem;
+            p{
+                margin:0;
+                margin-bottom:0.08rem
+            }
+            div{
+                padding-left:0rem;
+                color:#ffb375;
+                font-size:0.12rem;
+            }
+        }
+        div:nth-of-type(1){margin-right:0.1rem;
+            span{
+                padding-right:0.1rem; 
+                        }
+        }
+        p:nth-of-type(1){
+            
+        }
+        p:nth-of-type(2){
+            font-size: 0.12rem;
+        }
+        p:nth-of-type(3){
+            font-size: 0.12rem;
+        }
         img{
             display: block;
             width:0.6rem;
+        }
+        div{
+            
         }
     }
     

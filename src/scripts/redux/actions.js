@@ -3,7 +3,6 @@
 import store from './store'
 const actions = {
 	addNumber(){
-		console.log('4.actions的方法触发之后创建带有标识属性的action对象，调用store.dispatch方法，交由reducer来处理')
 		let action = {
 			type:'ADD_NUMBER'
 		}
